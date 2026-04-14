@@ -1,0 +1,1396 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sales Team Incentive Programme · Italy 2026</title>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&family=Noto+Sans+Tamil:wght@400;600;700&family=Noto+Sans+Bengali:wght@400;600;700&family=Noto+Nastaliq+Urdu:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy: #21264E;
+    --blue: #006AE0;
+    --green: #08DC7D;
+    --gold: #FFD54F;
+    --red: #F04438;
+    --white: #FFFFFF;
+    --off: #F4F6FB;
+    --muted: #6B7280;
+    --border: #E5E8F0;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--white);
+    color: var(--navy);
+    overflow-x: hidden;
+  }
+
+  /* RTL support */
+  body.rtl {
+    direction: rtl;
+    font-family: 'Noto Nastaliq Urdu', serif;
+  }
+  body.lang-ta { font-family: 'Noto Sans Tamil', 'DM Sans', sans-serif; }
+  body.lang-bn { font-family: 'Noto Sans Bengali', 'DM Sans', sans-serif; }
+  body.lang-ur { font-family: 'Noto Nastaliq Urdu', serif; }
+
+  body.rtl nav { flex-direction: row-reverse; }
+  body.rtl .nav-links { flex-direction: row-reverse; }
+  body.rtl .step:not(:last-child)::after { content: '←'; left: -12px; right: auto; }
+  body.rtl .tc-item { flex-direction: row-reverse; }
+  body.rtl .mandatory-box { border-left: none; border-right: 5px solid var(--gold); }
+  body.rtl .mandatory-box li { flex-direction: row-reverse; }
+  body.rtl .threshold-box { flex-direction: row-reverse; }
+  body.rtl .calc-result { flex-direction: row-reverse; }
+  body.rtl .calc-result-pct { text-align: left; }
+  body.rtl .weight-note { text-align: right; }
+  body.rtl .payout-table th, body.rtl .payout-table td { text-align: right; }
+
+  /* ── LANGUAGE SWITCHER ── */
+  .lang-switcher {
+    position: fixed; top: 68px; right: 16px; z-index: 200;
+    display: flex; flex-direction: column; align-items: flex-end;
+  }
+  body.rtl .lang-switcher { right: auto; left: 16px; align-items: flex-start; }
+
+  .lang-btn-main {
+    background: var(--white); color: var(--navy);
+    border: none; border-radius: 10px; padding: 0.45rem 1rem;
+    font-size: 0.78rem; font-weight: 700; cursor: pointer;
+    display: flex; align-items: center; gap: 0.4rem;
+    box-shadow: 0 4px 16px rgba(8,220,125,0.3);
+    transition: transform 0.2s;
+  }
+  .lang-btn-main:hover { transform: translateY(-1px); }
+
+  .lang-dropdown {
+    display: none; flex-direction: column; gap: 0.35rem;
+    margin-top: 0.4rem; background: var(--white);
+    border: 1px solid var(--border); border-radius: 12px;
+    padding: 0.5rem; box-shadow: 0 8px 32px rgba(33,38,78,0.15);
+    min-width: 160px;
+  }
+  .lang-dropdown.open { display: flex; }
+
+  .lang-opt {
+    display: flex; align-items: center; gap: 0.6rem;
+    padding: 0.5rem 0.75rem; border-radius: 8px;
+    font-size: 0.82rem; font-weight: 500; cursor: pointer;
+    border: none; background: transparent; color: var(--navy);
+    text-align: left; transition: background 0.15s;
+    width: 100%;
+  }
+  .lang-opt:hover { background: var(--off); }
+  .lang-opt.active { background: var(--navy); color: var(--white); font-weight: 700; }
+  .lang-opt .flag { font-size: 1.1rem; }
+
+  /* ── NAV ── */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    background: rgba(33,38,78,0.97);
+    backdrop-filter: blur(12px);
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 0 2.5rem; height: 60px;
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+  }
+  .nav-logo img { height: 40px; width: auto; }
+  .nav-logo span { color: var(--green); }
+  .nav-links { display: flex; gap: 2rem; }
+  .nav-links a {
+    font-size: 0.8rem; font-weight: 500; color: rgba(255,255,255,0.65);
+    text-decoration: none; letter-spacing: 0.05em; text-transform: uppercase;
+    transition: color 0.2s;
+  }
+  .nav-links a:hover { color: var(--green); }
+
+  /* ── HERO ── */
+  .hero {
+    background: var(--navy); min-height: 100vh;
+    display: flex; align-items: center; justify-content: center;
+    text-align: center; padding: 7rem 2rem 5rem;
+    position: relative; overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute; inset: 0;
+    background: radial-gradient(ellipse 70% 60% at 50% 40%, rgba(0,106,224,0.25) 0%, transparent 70%),
+                radial-gradient(ellipse 40% 40% at 80% 80%, rgba(8,220,125,0.12) 0%, transparent 60%);
+  }
+  .hero-grid {
+    position: absolute; inset: 0;
+    background-image: linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
+                      linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+    background-size: 60px 60px;
+  }
+  .hero-content { position: relative; max-width: 780px; }
+  .hero-badge {
+    display: inline-flex; align-items: center; gap: 0.5rem;
+    background: rgba(8,220,125,0.12); border: 1px solid rgba(8,220,125,0.3);
+    color: var(--green); padding: 0.35rem 1rem; border-radius: 100px;
+    font-size: 0.75rem; font-weight: 600; letter-spacing: 0.08em;
+    text-transform: uppercase; margin-bottom: 2rem;
+    animation: fadeUp 0.6s ease both;
+  }
+  .hero h1 {
+    font-family: sans-serif; font-weight: 800;
+    font-size: clamp(2.4rem, 6vw, 4rem); color: var(--white);
+    line-height: 1.1; margin-bottom: 1.25rem;
+    animation: fadeUp 0.6s 0.1s ease both;
+  }
+  .hero h1 em { font-style: normal; color: var(--gold); }
+  .hero p {
+    font-size: 1.1rem; color: rgba(255,255,255,0.6); line-height: 1.7;
+    max-width: 540px; margin: 0 auto 2.5rem;
+    animation: fadeUp 0.6s 0.2s ease both;
+  }
+  .hero-cta {
+    display: inline-flex; gap: 1rem; flex-wrap: wrap; justify-content: center;
+    animation: fadeUp 0.6s 0.3s ease both;
+  }
+  .btn-primary {
+    background: var(--green); color: var(--navy);
+    padding: 0.8rem 2rem; border-radius: 8px; font-weight: 700;
+    font-size: 0.9rem; text-decoration: none; transition: transform 0.2s, box-shadow 0.2s;
+    letter-spacing: 0.02em;
+  }
+  .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(8,220,125,0.3); }
+  .btn-ghost {
+    background: transparent; color: rgba(255,255,255,0.8);
+    padding: 0.8rem 2rem; border-radius: 8px; font-weight: 500;
+    font-size: 0.9rem; text-decoration: none; border: 1px solid rgba(255,255,255,0.2);
+    transition: border-color 0.2s, color 0.2s;
+  }
+  .btn-ghost:hover { border-color: var(--green); color: var(--green); }
+
+  /* ── ROLE CARDS ── */
+  .roles-section { background: var(--off); padding: 5rem 2rem; }
+  .section-header { text-align: center; margin-bottom: 3rem; }
+  .section-label {
+    display: inline-block; color: var(--blue); font-weight: 600;
+    font-size: 0.75rem; letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 0.75rem;
+  }
+  .section-header h2 {
+    font-family: sans-serif; font-weight: 800; font-size: clamp(1.8rem, 4vw, 2.5rem);
+    color: var(--navy); line-height: 1.15;
+  }
+  .section-header p { color: var(--muted); margin-top: 0.75rem; font-size: 1rem; }
+
+  .roles-grid {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 1.5rem; max-width: 900px; margin: 0 auto;
+  }
+  .role-card {
+    background: var(--white); border-radius: 16px;
+    border: 1px solid var(--border); padding: 2rem 1.75rem;
+    position: relative; overflow: hidden;
+    transition: transform 0.25s, box-shadow 0.25s;
+  }
+  .role-card:hover { transform: translateY(-4px); box-shadow: 0 16px 40px rgba(33,38,78,0.1); }
+  .role-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 4px; }
+  .role-card.regional::before { background: var(--gold); }
+  .role-card.office::before { background: var(--blue); }
+  .role-card.zone::before { background: var(--green); }
+  .role-icon {
+    width: 48px; height: 48px; border-radius: 12px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.4rem; margin-bottom: 1.25rem;
+  }
+  .role-card.regional .role-icon { background: rgba(255,213,79,0.15); }
+  .role-card.office .role-icon { background: rgba(0,106,224,0.1); }
+  .role-card.zone .role-icon { background: rgba(8,220,125,0.12); }
+  .role-label { font-size: 0.72rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); margin-bottom: 0.4rem; }
+  .role-title { font-family: sans-serif; font-weight: 700; font-size: 1.15rem; color: var(--navy); margin-bottom: 1rem; }
+  .role-amount { font-family: sans-serif; font-weight: 800; font-size: 2.2rem; color: var(--navy); }
+  .role-amount span { font-size: 1rem; font-weight: 400; color: var(--muted); }
+  .role-max { margin-top: 0.5rem; font-size: 0.8rem; color: var(--muted); }
+  .role-max strong { color: var(--navy); }
+
+  /* ── HOW IT WORKS ── */
+  .how-section { padding: 5rem 2rem; background: var(--white); }
+  .steps { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 0; max-width: 900px; margin: 0 auto; }
+  .step { padding: 2rem 1.75rem; position: relative; }
+  .step:not(:last-child)::after {
+    content: '→'; position: absolute; right: -12px; top: 50%; transform: translateY(-50%);
+    font-size: 1.4rem; color: var(--border); z-index: 1;
+  }
+  .step-num {
+    width: 40px; height: 40px; border-radius: 10px;
+    background: var(--navy); color: var(--white);
+    font-family: sans-serif; font-weight: 800; font-size: 1rem;
+    display: flex; align-items: center; justify-content: center; margin-bottom: 1.25rem;
+  }
+  .step h3 { font-family: sans-serif; font-weight: 700; font-size: 1rem; margin-bottom: 0.5rem; }
+  .step p { font-size: 0.88rem; color: var(--muted); line-height: 1.6; }
+
+  /* ── WEIGHTAGE ── */
+  .weight-section { background: var(--navy); padding: 5rem 2rem; }
+  .weight-section .section-header h2 { color: var(--white); }
+  .weight-section .section-header p { color: rgba(255,255,255,0.5); }
+  .weight-section .section-label { color: var(--green); }
+  .weight-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1.5rem; max-width: 900px; margin: 0 auto; }
+  .weight-card {
+    background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 16px; padding: 2rem; position: relative; overflow: hidden;
+  }
+  .weight-pct { font-family: sans-serif; font-weight: 800; font-size: 3.5rem; line-height: 1; margin-bottom: 0.25rem; }
+  .weight-card.ga .weight-pct { color: var(--green); }
+  .weight-card.uao .weight-pct { color: var(--gold); }
+  .weight-card.na .weight-pct { color: rgba(255,255,255,0.5); }
+  .weight-tag {
+    display: inline-block; padding: 0.25rem 0.65rem; border-radius: 6px;
+    font-size: 0.72rem; font-weight: 700; letter-spacing: 0.08em;
+    text-transform: uppercase; margin-bottom: 1rem;
+  }
+  .weight-card.ga .weight-tag { background: rgba(8,220,125,0.15); color: var(--green); }
+  .weight-card.uao .weight-tag { background: rgba(255,213,79,0.15); color: var(--gold); }
+  .weight-card.na .weight-tag { background: rgba(255,255,255,0.08); color: rgba(255,255,255,0.5); }
+  .weight-title { font-family: sans-serif; font-weight: 700; font-size: 1rem; color: var(--white); margin-bottom: 0.5rem; }
+  .weight-desc { font-size: 0.85rem; color: rgba(255,255,255,0.5); line-height: 1.6; }
+  .weight-note { font-size: 0.78rem; color: rgba(255,255,255,0.35); margin-top: 0.75rem; font-style: italic; }
+  .weight-bar-wrap { max-width: 900px; margin: 2.5rem auto 0; }
+  .weight-bar { height: 12px; border-radius: 100px; display: flex; overflow: hidden; gap: 3px; }
+  .wb-ga { flex: 75; background: var(--green); border-radius: 100px 0 0 100px; }
+  .wb-uao { flex: 20; background: var(--gold); }
+  .wb-na { flex: 5; background: rgba(255,255,255,0.3); border-radius: 0 100px 100px 0; }
+  .weight-bar-labels { display: flex; justify-content: space-between; margin-top: 0.75rem; }
+  .wbl { font-size: 0.75rem; color: rgba(255,255,255,0.45); }
+
+  /* ── PAYOUT TABLE ── */
+  .payout-section { padding: 5rem 2rem; background: var(--off); }
+  .payout-wrap { max-width: 780px; margin: 0 auto; }
+  .role-tabs { display: flex; gap: 0.5rem; margin-bottom: 2rem; flex-wrap: wrap; }
+  .rtab {
+    padding: 0.5rem 1.25rem; border-radius: 8px;
+    font-size: 0.82rem; font-weight: 600; cursor: pointer;
+    border: 1.5px solid var(--border); background: var(--white);
+    color: var(--muted); transition: all 0.2s;
+  }
+  .rtab.active { background: var(--navy); color: var(--white); border-color: var(--navy); }
+  .payout-table { width: 100%; border-collapse: collapse; background: var(--white); border-radius: 12px; overflow: hidden; border: 1px solid var(--border); }
+  .payout-table th {
+    background: var(--navy); color: var(--white);
+    font-family: sans-serif; font-size: 0.78rem; font-weight: 700;
+    letter-spacing: 0.06em; text-transform: uppercase;
+    padding: 1rem 1.25rem; text-align: left;
+  }
+  .payout-table td { padding: 1rem 1.25rem; font-size: 0.9rem; border-top: 1px solid var(--border); }
+  .payout-table tr:hover td { background: #F8FAFF; }
+  .payout-table tr.highlight td { background: rgba(8,220,125,0.06); }
+  .badge-zero { display: inline-block; background: rgba(240,68,56,0.1); color: var(--red); padding: 0.2rem 0.6rem; border-radius: 6px; font-size: 0.78rem; font-weight: 600; }
+  .badge-on { display: inline-block; background: rgba(8,220,125,0.12); color: #059054; padding: 0.2rem 0.6rem; border-radius: 6px; font-size: 0.78rem; font-weight: 600; }
+  .badge-max { display: inline-block; background: rgba(255,213,79,0.2); color: #8B6800; padding: 0.2rem 0.6rem; border-radius: 6px; font-size: 0.78rem; font-weight: 600; }
+  .amount-cell { font-family: sans-serif; font-weight: 700; font-size: 1rem; }
+  .threshold-box {
+    margin-top: 1.5rem; background: rgba(240,68,56,0.06);
+    border: 1px solid rgba(240,68,56,0.2); border-radius: 10px;
+    padding: 1rem 1.25rem; display: flex; align-items: flex-start; gap: 0.75rem;
+  }
+  .threshold-box .icon { font-size: 1.1rem; flex-shrink: 0; margin-top: 0.1rem; }
+  .threshold-box p { font-size: 0.85rem; color: #7A1A12; line-height: 1.6; }
+  .threshold-box strong { font-weight: 700; }
+
+  /* ── CALCULATOR ── */
+  .calc-section { padding: 5rem 2rem; background: var(--white); }
+  .calc-wrap { max-width: 700px; margin: 0 auto; }
+  .calc-card { background: var(--navy); border-radius: 20px; padding: 2.5rem; color: var(--white); }
+  .calc-title { font-family: sans-serif; font-weight: 800; font-size: 1.3rem; margin-bottom: 0.5rem; }
+  .calc-sub { color: rgba(255,255,255,0.5); font-size: 0.9rem; margin-bottom: 2rem; }
+  .calc-role-select { display: flex; gap: 0.5rem; margin-bottom: 2rem; flex-wrap: wrap; }
+  .crs-btn {
+    padding: 0.45rem 1rem; border-radius: 7px; cursor: pointer;
+    font-size: 0.78rem; font-weight: 600; border: 1.5px solid rgba(255,255,255,0.15);
+    background: transparent; color: rgba(255,255,255,0.55); transition: all 0.2s;
+  }
+  .crs-btn.active { background: var(--green); color: var(--navy); border-color: var(--green); }
+  .calc-inputs { display: grid; grid-template-columns: 1fr 1fr; gap: 1.25rem; margin-bottom: 1.5rem; }
+  @media(max-width:500px){ .calc-inputs { grid-template-columns: 1fr; } }
+  .calc-field label {
+    display: block; font-size: 0.72rem; font-weight: 700; letter-spacing: 0.1em;
+    text-transform: uppercase; color: rgba(255,255,255,0.45); margin-bottom: 0.5rem;
+  }
+  .calc-field label em { color: var(--green); font-style: normal; font-size: 0.8em; }
+  .calc-field input {
+    width: 100%; background: rgba(255,255,255,0.07); border: 1px solid rgba(255,255,255,0.12);
+    border-radius: 8px; padding: 0.7rem 1rem; color: var(--white); font-size: 1rem; font-weight: 500;
+    outline: none; transition: border-color 0.2s;
+  }
+  .calc-field input:focus { border-color: var(--green); }
+  .calc-field input::placeholder { color: rgba(255,255,255,0.2); }
+  .calc-result {
+    background: rgba(8,220,125,0.1); border: 1px solid rgba(8,220,125,0.2);
+    border-radius: 12px; padding: 1.5rem; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1rem;
+  }
+  .calc-result-label { font-size: 0.75rem; color: rgba(255,255,255,0.45); letter-spacing: 0.06em; text-transform: uppercase; margin-bottom: 0.25rem; }
+  .calc-result-amount { font-family: sans-serif; font-weight: 800; font-size: 2.4rem; color: var(--green); }
+  .calc-result-detail { font-size: 0.8rem; color: rgba(255,255,255,0.4); margin-top: 0.25rem; }
+  .calc-result-pct { text-align: right; }
+  .calc-result-pct .big { font-family: sans-serif; font-weight: 800; font-size: 1.6rem; color: var(--white); }
+  .calc-result-pct .sm { font-size: 0.75rem; color: rgba(255,255,255,0.4); }
+  .calc-zero { color: var(--red) !important; }
+  .calc-warn { margin-top: 1rem; font-size: 0.8rem; color: rgba(255,180,160,0.8); display: none; }
+  .calc-warn.show { display: block; }
+
+  /* ── T&C ── */
+  .tc-section { padding: 5rem 2rem; background: var(--off); }
+  .tc-wrap { max-width: 800px; margin: 0 auto; }
+  .tc-grid { display: grid; gap: 1rem; margin-top: 2rem; }
+  .tc-item {
+    background: var(--white); border: 1px solid var(--border); border-radius: 12px;
+    padding: 1.25rem 1.5rem; display: flex; align-items: flex-start; gap: 1rem;
+    transition: border-color 0.2s;
+  }
+  .tc-item:hover { border-color: var(--blue); }
+  .tc-num {
+    flex-shrink: 0; width: 28px; height: 28px; border-radius: 7px;
+    background: var(--navy); color: var(--white);
+    font-family: sans-serif; font-weight: 700; font-size: 0.75rem;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .tc-text { font-size: 0.875rem; color: #374151; line-height: 1.65; }
+  .tc-text strong { color: var(--navy); font-weight: 600; }
+  .mandatory-box {
+    margin-top: 2rem; background: var(--navy); border-radius: 14px; padding: 2rem;
+    border-left: 5px solid var(--gold);
+  }
+  .mandatory-box h3 {
+    font-family: sans-serif; font-weight: 800; font-size: 0.9rem;
+    letter-spacing: 0.1em; text-transform: uppercase; color: var(--gold); margin-bottom: 1rem;
+  }
+  .mandatory-box ul { list-style: none; display: grid; gap: 0.6rem; }
+  .mandatory-box li { display: flex; align-items: flex-start; gap: 0.75rem; font-size: 0.875rem; color: rgba(255,255,255,0.75); line-height: 1.6; }
+  .mandatory-box li::before { content: '⚠'; flex-shrink: 0; }
+
+  /* ── FOOTER ── */
+  footer {
+    background: var(--navy); color: rgba(255,255,255,0.4);
+    text-align: center; padding: 2rem; font-size: 0.8rem;
+  }
+  footer strong { color: rgba(255,255,255,0.7); }
+
+  /* ── ANIMATIONS ── */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(18px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  @media(max-width:640px){
+    nav { padding: 0 1rem; }
+    .nav-links { display: none; }
+    .step::after { display: none; }
+    .steps { gap: 0.5rem; }
+    .lang-switcher { top: 64px; right: 8px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- LANGUAGE SWITCHER -->
+<div class="lang-switcher">
+  <button class="lang-btn-main" onclick="toggleLangMenu()" id="langToggleBtn">
+    🌐 <span id="currentLangLabel">English</span> ▾
+  </button>
+  <div class="lang-dropdown" id="langDropdown">
+    <button class="lang-opt active" onclick="setLang('en')" data-lang="en"><span class="flag">🇬🇧</span> English</button>
+    <button class="lang-opt" onclick="setLang('it')" data-lang="it"><span class="flag">🇮🇹</span> Italiano</button>
+    <button class="lang-opt" onclick="setLang('ta')" data-lang="ta"><span class="flag">🇮🇳</span> தமிழ்</button>
+    <button class="lang-opt" onclick="setLang('bn')" data-lang="bn"><span class="flag">🇧🇩</span> বাংলা</button>
+    <button class="lang-opt" onclick="setLang('ur')" data-lang="ur"><span class="flag">🇵🇰</span> اردو</button>
+  </div>
+</div>
+
+<nav>
+  <div class="nav-logo">
+    <img src="https://cms-assets.ldsvcplatform.com/IT/s3fs-public/inline-images/logo_new1.png" alt="Lycamobile Italy Logo">
+  </div>
+  <div class="nav-links">
+    <a href="#roles" data-i18n="nav.roles">Roles</a>
+    <a href="#weightage" data-i18n="nav.weightage">Weightage</a>
+    <a href="#payouts" data-i18n="nav.payouts">Payouts</a>
+    <a href="#calculator" data-i18n="nav.calculator">Calculator</a>
+    <a href="#terms" data-i18n="nav.terms">T&C</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-grid"></div>
+  <div class="hero-content">
+    <div class="hero-badge">📋 <span data-i18n="hero.badge">2026 · Italy</span></div>
+    <h1 data-i18n-html="hero.title">Sales Team<br><em>Incentive Programme</em></h1>
+    <p data-i18n="hero.desc">Everything you need to know about how your monthly incentive is calculated — targets, weightage, payout slabs and conditions.</p>
+    <div class="hero-cta">
+      <a href="#calculator" class="btn-primary" data-i18n="hero.cta1">Calculate My Incentive</a>
+      <a href="#payouts" class="btn-ghost" data-i18n="hero.cta2">View Payout Slabs</a>
+    </div>
+  </div>
+</section>
+
+<!-- ROLES -->
+<section class="roles-section" id="roles">
+  <div class="section-header">
+    <div class="section-label" data-i18n="roles.label">Monthly Slab</div>
+    <h2 data-i18n="roles.title">Your Fixed Incentive Amount</h2>
+    <p data-i18n="roles.desc">Maximum payout is capped at 120% of your eligible amount.</p>
+  </div>
+  <div class="roles-grid">
+    <div class="role-card regional">
+      <div class="role-icon">🏆</div>
+      <div class="role-label" data-i18n="roles.rm.label">Leadership</div>
+      <div class="role-title" data-i18n="roles.rm.title">Regional Manager</div>
+      <div class="role-amount">€1,500 <span data-i18n="roles.perMonth">/ month</span></div>
+      <div class="role-max"><span data-i18n="roles.maxAt">Max at 120%:</span> <strong>€1,800</strong></div>
+    </div>
+    <div class="role-card office">
+      <div class="role-icon">🏢</div>
+      <div class="role-label" data-i18n="roles.om.label">Management</div>
+      <div class="role-title" data-i18n="roles.om.title">Office Manager</div>
+      <div class="role-amount">€1,000 <span data-i18n="roles.perMonth">/ month</span></div>
+      <div class="role-max"><span data-i18n="roles.maxAt">Max at 120%:</span> <strong>€1,200</strong></div>
+    </div>
+    <div class="role-card zone">
+      <div class="role-icon">📍</div>
+      <div class="role-label" data-i18n="roles.zm.label">Field Operations</div>
+      <div class="role-title" data-i18n="roles.zm.title">Zone Manager</div>
+      <div class="role-amount">€700 <span data-i18n="roles.perMonth">/ month</span></div>
+      <div class="role-max"><span data-i18n="roles.maxAt">Max at 120%:</span> <strong>€840</strong></div>
+    </div>
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section class="how-section">
+  <div class="section-header">
+    <div class="section-label" data-i18n="how.label">Process</div>
+    <h2 data-i18n="how.title">How Your Incentive Is Calculated</h2>
+  </div>
+  <div class="steps">
+    <div class="step">
+      <div class="step-num">1</div>
+      <h3 data-i18n="how.s1.title">Measure Performance</h3>
+      <p data-i18n="how.s1.desc">Your monthly results are tracked across three metrics: GA, UAO, and New Shops (NA).</p>
+    </div>
+    <div class="step">
+      <div class="step-num">2</div>
+      <h3 data-i18n="how.s2.title">Calculate Weightage</h3>
+      <p data-i18n="how.s2.desc">Each metric is weighted and combined into a single Overall Weightage % score.</p>
+    </div>
+    <div class="step">
+      <div class="step-num">3</div>
+      <h3 data-i18n="how.s3.title">Earn Commission</h3>
+      <p data-i18n="how.s3.desc">Your Overall Weightage % determines what % of your fixed slab you receive that month.</p>
+    </div>
+  </div>
+</section>
+
+<!-- WEIGHTAGE -->
+<section class="weight-section" id="weightage">
+  <div class="section-header">
+    <div class="section-label" data-i18n="weight.label">Metrics</div>
+    <h2 data-i18n="weight.title">Performance Weightage Structure</h2>
+    <p data-i18n="weight.desc">Three KPIs combine to form your Overall Weightage % each month.</p>
+  </div>
+  <div class="weight-bar-wrap">
+    <div class="weight-bar">
+      <div class="wb-ga"></div>
+      <div class="wb-uao"></div>
+      <div class="wb-na"></div>
+    </div>
+    <div class="weight-bar-labels">
+      <span class="wbl">GA — 75%</span>
+      <span class="wbl">UAO — 20%</span>
+      <span class="wbl">NA — 5%</span>
+    </div>
+  </div>
+  <div class="weight-grid" style="margin-top:2.5rem;">
+    <div class="weight-card ga">
+      <div class="weight-pct">75%</div>
+      <div class="weight-tag">GA</div>
+      <div class="weight-title" data-i18n="weight.ga.title">Gross Additions</div>
+      <div class="weight-desc" data-i18n="weight.ga.desc">New active SIM sales registered in your zone. Includes: New Activation + FCA + Plan Activation.</div>
+      <div class="weight-note" data-i18n="weight.ga.note">Highest weight — focus here first.</div>
+    </div>
+    <div class="weight-card uao">
+      <div class="weight-pct">20%</div>
+      <div class="weight-tag">UAO</div>
+      <div class="weight-title" data-i18n="weight.uao.title">Unique Active Outlets</div>
+      <div class="weight-desc" data-i18n="weight.uao.desc">The number of outlets that recorded at least 1 GA sale in the current month.</div>
+      <div class="weight-note" data-i18n="weight.uao.note">Spread activity across your full retailer network.</div>
+    </div>
+    <div class="weight-card na">
+      <div class="weight-pct">5%</div>
+      <div class="weight-tag">NA</div>
+      <div class="weight-title" data-i18n="weight.na.title">New Shops</div>
+      <div class="weight-desc" data-i18n="weight.na.desc">Newly added shops onboarded in line with the defined criteria and requirements.</div>
+      <div class="weight-note" data-i18n="weight.na.note">Smaller weight, but counts toward the 90% threshold.</div>
+    </div>
+  </div>
+</section>
+
+<!-- PAYOUT TABLE -->
+<section class="payout-section" id="payouts">
+  <div class="section-header">
+    <div class="section-label" data-i18n="payout.label">Earnings</div>
+    <h2 data-i18n="payout.title">Incentive Payout Slabs</h2>
+    <p data-i18n="payout.desc">Select your role to see exact payout amounts.</p>
+  </div>
+  <div class="payout-wrap">
+    <div class="role-tabs">
+      <button class="rtab active" onclick="switchRole(this, 700)" data-i18n="payout.tab.zm">Zone Manager (€700)</button>
+      <button class="rtab" onclick="switchRole(this, 1000)" data-i18n="payout.tab.om">Office Manager (€1,000)</button>
+      <button class="rtab" onclick="switchRole(this, 1500)" data-i18n="payout.tab.rm">Regional Manager (€1,500)</button>
+    </div>
+    <table class="payout-table" id="payoutTable">
+      <thead>
+        <tr>
+          <th data-i18n="payout.th.weightage">Overall Weightage</th>
+          <th data-i18n="payout.th.pct">% of Slab</th>
+          <th data-i18n="payout.th.earned">Incentive Earned</th>
+          <th data-i18n="payout.th.status">Status</th>
+        </tr>
+      </thead>
+      <tbody id="payoutBody"></tbody>
+    </table>
+    <div class="threshold-box">
+      <span class="icon">🔴</span>
+      <p data-i18n-html="payout.threshold"><strong>Mandatory Threshold:</strong> You must achieve a minimum of <strong>90% Overall Weightage</strong> to be eligible for any incentive payout. Achievement below 90% results in €0 regardless of individual metric scores.</p>
+    </div>
+  </div>
+</section>
+
+<!-- CALCULATOR -->
+<section class="calc-section" id="calculator">
+  <div class="section-header">
+    <div class="section-label" data-i18n="calc.label">Tool</div>
+    <h2 data-i18n="calc.title">Estimate Your Incentive</h2>
+    <p data-i18n="calc.desc">Enter your targets and MTD actuals to see your projected payout.</p>
+  </div>
+  <div class="calc-wrap">
+    <div class="calc-card">
+      <div class="calc-title" data-i18n="calc.cardTitle">💰 Incentive Calculator</div>
+      <div class="calc-sub" data-i18n="calc.cardSub">Results are estimates. Final payout is subject to all T&C.</div>
+      <div class="calc-role-select">
+        <button class="crs-btn active" data-slab="700" onclick="setCalcRole(this)" data-i18n="roles.zm.title">Zone Manager</button>
+        <button class="crs-btn" data-slab="1000" onclick="setCalcRole(this)" data-i18n="roles.om.title">Office Manager</button>
+        <button class="crs-btn" data-slab="1500" onclick="setCalcRole(this)" data-i18n="roles.rm.title">Regional Manager</button>
+      </div>
+      <div class="calc-inputs">
+        <div class="calc-field">
+          <label data-i18n="calc.gaTarget">GA Target</label>
+          <input type="number" id="gaTarget" placeholder="e.g. 1550" oninput="calcIncentive()">
+        </div>
+        <div class="calc-field">
+          <label data-i18n="calc.gaActual">GA Actual (MTD)</label>
+          <input type="number" id="gaActual" placeholder="e.g. 1450" oninput="calcIncentive()">
+        </div>
+        <div class="calc-field">
+          <label data-i18n="calc.uaoTarget">UAO Target</label>
+          <input type="number" id="uaoTarget" placeholder="e.g. 141" oninput="calcIncentive()">
+        </div>
+        <div class="calc-field">
+          <label data-i18n="calc.uaoActual">UAO Actual (MTD)</label>
+          <input type="number" id="uaoActual" placeholder="e.g. 130" oninput="calcIncentive()">
+        </div>
+        <div class="calc-field">
+          <label><span data-i18n="calc.naTarget">NA Target</span> <em data-i18n="calc.naNote">(New Shops)</em></label>
+          <input type="number" id="naTarget" placeholder="e.g. 3" oninput="calcIncentive()">
+        </div>
+        <div class="calc-field">
+          <label data-i18n="calc.naActual">NA Actual (MTD)</label>
+          <input type="number" id="naActual" placeholder="e.g. 2" oninput="calcIncentive()">
+        </div>
+      </div>
+      <div class="calc-result">
+        <div class="calc-result-left">
+          <div class="calc-result-label" data-i18n="calc.result.label">Estimated Incentive</div>
+          <div class="calc-result-amount" id="calcAmount">—</div>
+          <div class="calc-result-detail" id="calcDetail" data-i18n="calc.result.placeholder">Enter your targets above</div>
+        </div>
+        <div class="calc-result-pct">
+          <div class="big" id="calcPct">—</div>
+          <div class="sm" data-i18n="calc.result.overallLabel">Overall Weightage</div>
+        </div>
+      </div>
+      <div class="calc-warn" id="calcWarn" data-i18n="calc.warn">⚠️ Below 90% — no payout is issued. Keep pushing to reach the threshold!</div>
+    </div>
+  </div>
+</section>
+
+<!-- TERMS -->
+<section class="tc-section" id="terms">
+  <div class="section-header">
+    <div class="section-label" data-i18n="tc.label">Rules</div>
+    <h2 data-i18n="tc.title">Terms &amp; Conditions</h2>
+    <p data-i18n="tc.desc">Please read carefully — these conditions govern all incentive payouts.</p>
+  </div>
+  <div class="tc-wrap">
+    <div class="tc-grid">
+      <div class="tc-item"><div class="tc-num">1</div><div class="tc-text" data-i18n-html="tc.1">Incentive payout is based on your <strong>% achievement of Overall Weightage</strong>.</div></div>
+      <div class="tc-item"><div class="tc-num">2</div><div class="tc-text" data-i18n-html="tc.2">Weightage categories GA–75%, UAO–20%, New Shop–5% apply to all countries. All staff can earn <strong>up to a maximum of 120%</strong> of the eligible amount.</div></div>
+      <div class="tc-item"><div class="tc-num">3</div><div class="tc-text" data-i18n-html="tc.3"><strong>Preloaded SIM Cards:</strong> Field staff are eligible for extra incentives on preloaded SIM tertiary sales (sold to retailer) as per face-value slabs.</div></div>
+      <div class="tc-item"><div class="tc-num">4</div><div class="tc-text" data-i18n-html="tc.4">Preloaded Bundle SIM sales deducted from the Retailer POS balance will <strong>not</strong> be considered. <strong>Only Bank Transfer or Cash sales</strong> are taken into account.</div></div>
+      <div class="tc-item"><div class="tc-num">5</div><div class="tc-text" data-i18n-html="tc.5">If a preloaded SIM is offered for <strong>free</strong>, it will not be included in the incentive calculation.</div></div>
+      <div class="tc-item"><div class="tc-num">6</div><div class="tc-text" data-i18n-html="tc.6">Retailers purchasing pre-loaded plans in quantities of <strong>1,000 or more</strong> are only eligible for <strong>50% of the given incentive scheme</strong>.</div></div>
+      <div class="tc-item"><div class="tc-num">7</div><div class="tc-text" data-i18n="tc.7">Preloaded SIM commission payout is linked to GA/UAO targets. Performance should be considered in all cases.</div></div>
+      <div class="tc-item"><div class="tc-num">8</div><div class="tc-text" data-i18n-html="tc.8">Zone Managers must be <strong>allocated to one zone only</strong> for payout to be calculated.</div></div>
+      <div class="tc-item"><div class="tc-num">9</div><div class="tc-text" data-i18n-html="tc.9">The company reserves the right to <strong>change the incentive scheme or zone</strong> for any sales rep at any time.</div></div>
+      <div class="tc-item"><div class="tc-num">10</div><div class="tc-text" data-i18n-html="tc.10">For Sales Rep / TL / Area Manager / Regional Manager — <strong>90% attendance is mandatory</strong> to be eligible for incentive, unless there are pre-approved Holidays validated by Sales / Ops / HR before Finance disbursement.</div></div>
+      <div class="tc-item"><div class="tc-num">11</div><div class="tc-text" data-i18n-html="tc.11">Zone reallocation or changing staff zones is <strong>not permitted without management approval</strong>. Reps must manage a zone for at least one full calendar month (except new hires filling vacant zones).</div></div>
+      <div class="tc-item"><div class="tc-num">12</div><div class="tc-text" data-i18n-html="tc.12">Sales Head and Office Managers are responsible for achieving <strong>80% of the PAYM target</strong> to enrol in the PAYG incentive calculation.</div></div>
+    </div>
+    <div class="mandatory-box">
+      <h3 data-i18n="tc.mandatory.title">⚠ Mandatory Conditions</h3>
+      <ul>
+        <li data-i18n-html="tc.mandatory.1">Must achieve <strong>90% of the Overall Weightage</strong> to be eligible for any incentive payout.</li>
+        <li data-i18n="tc.mandatory.2">Preloaded tertiary sales incentive: performance must be considered.</li>
+        <li data-i18n="tc.mandatory.3">There must be growth in performance compared to the same month last year and the previous month of the current year. The business will make decisions based on each individual's performance and growth.</li>
+        <li data-i18n="tc.mandatory.4">All fraudulent sales / sales returns / 90-day port-outs / clawbacks will be deducted from sales achievement.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <strong data-i18n="footer.main">Lycamobile Italy · Sales Team Incentive Programme · 2026</strong><br>
+  <span style="margin-top:0.4rem;display:block;" data-i18n="footer.sub">This document is for internal staff use only. Subject to change at management discretion.</span>
+</footer>
+
+<script>
+// ═══════════════════════════════════════════════════════
+//  TRANSLATIONS
+// ═══════════════════════════════════════════════════════
+const translations = {
+
+  en: {
+    "nav.roles": "Roles",
+    "nav.weightage": "Weightage",
+    "nav.payouts": "Payouts",
+    "nav.calculator": "Calculator",
+    "nav.terms": "T&C",
+    "hero.badge": "2026 · Italy",
+    "hero.title": "Sales Team<br><em>Incentive Programme</em>",
+    "hero.desc": "Everything you need to know about how your monthly incentive is calculated — targets, weightage, payout slabs and conditions.",
+    "hero.cta1": "Calculate My Incentive",
+    "hero.cta2": "View Payout Slabs",
+    "roles.label": "Monthly Slab",
+    "roles.title": "Your Fixed Incentive Amount",
+    "roles.desc": "Maximum payout is capped at 120% of your eligible amount.",
+    "roles.rm.label": "Leadership",
+    "roles.rm.title": "Regional Manager",
+    "roles.om.label": "Management",
+    "roles.om.title": "Office Manager",
+    "roles.zm.label": "Field Operations",
+    "roles.zm.title": "Zone Manager",
+    "roles.perMonth": "/ month",
+    "roles.maxAt": "Max at 120%:",
+    "how.label": "Process",
+    "how.title": "How Your Incentive Is Calculated",
+    "how.s1.title": "Measure Performance",
+    "how.s1.desc": "Your monthly results are tracked across three metrics: GA, UAO, and New Shops (NA).",
+    "how.s2.title": "Calculate Weightage",
+    "how.s2.desc": "Each metric is weighted and combined into a single Overall Weightage % score.",
+    "how.s3.title": "Earn Commission",
+    "how.s3.desc": "Your Overall Weightage % determines what % of your fixed slab you receive that month.",
+    "weight.label": "Metrics",
+    "weight.title": "Performance Weightage Structure",
+    "weight.desc": "Three KPIs combine to form your Overall Weightage % each month.",
+    "weight.ga.title": "Gross Additions",
+    "weight.ga.desc": "New active SIM sales registered in your zone. Includes: New Activation + FCA + Plan Activation.",
+    "weight.ga.note": "Highest weight — focus here first.",
+    "weight.uao.title": "Unique Active Outlets",
+    "weight.uao.desc": "The number of outlets that recorded at least 1 GA sale in the current month.",
+    "weight.uao.note": "Spread activity across your full retailer network.",
+    "weight.na.title": "New Shops",
+    "weight.na.desc": "Newly added shops onboarded in line with the defined criteria and requirements.",
+    "weight.na.note": "Smaller weight, but counts toward the 90% threshold.",
+    "payout.label": "Earnings",
+    "payout.title": "Incentive Payout Slabs",
+    "payout.desc": "Select your role to see exact payout amounts.",
+    "payout.tab.zm": "Zone Manager (€700)",
+    "payout.tab.om": "Office Manager (€1,000)",
+    "payout.tab.rm": "Regional Manager (€1,500)",
+    "payout.th.weightage": "Overall Weightage",
+    "payout.th.pct": "% of Slab",
+    "payout.th.earned": "Incentive Earned",
+    "payout.th.status": "Status",
+    "payout.threshold": "<strong>Mandatory Threshold:</strong> You must achieve a minimum of <strong>90% Overall Weightage</strong> to be eligible for any incentive payout. Achievement below 90% results in €0 regardless of individual metric scores.",
+    "payout.slab.lt90": "Less than 90%",
+    "payout.slab.90": "90% – 94%",
+    "payout.slab.95": "95% – 99%",
+    "payout.slab.100": "100% – 105%",
+    "payout.slab.106": "106% – 119%",
+    "payout.slab.120": "120% and above",
+    "payout.badge.zero": "No Payout",
+    "payout.badge.on": "⭐ On Target",
+    "payout.badge.max": "🏆 Max Cap",
+    "calc.label": "Tool",
+    "calc.title": "Estimate Your Incentive",
+    "calc.desc": "Enter your targets and MTD actuals to see your projected payout.",
+    "calc.cardTitle": "💰 Incentive Calculator",
+    "calc.cardSub": "Results are estimates. Final payout is subject to all T&C.",
+    "calc.gaTarget": "GA Target",
+    "calc.gaActual": "GA Actual (MTD)",
+    "calc.uaoTarget": "UAO Target",
+    "calc.uaoActual": "UAO Actual (MTD)",
+    "calc.naTarget": "NA Target",
+    "calc.naNote": "(New Shops)",
+    "calc.naActual": "NA Actual (MTD)",
+    "calc.result.label": "Estimated Incentive",
+    "calc.result.placeholder": "Enter your targets above",
+    "calc.result.overallLabel": "Overall Weightage",
+    "calc.warn": "⚠️ Below 90% — no payout is issued. Keep pushing to reach the threshold!",
+    "calc.slab.below": "Below threshold — no payout",
+    "calc.slab.50": "50% of slab (90–94%)",
+    "calc.slab.80": "80% of slab (95–99%)",
+    "calc.slab.100": "100% — On Target ⭐",
+    "calc.slab.110": "110% — Above Target",
+    "calc.slab.120": "120% — Max Cap 🏆",
+    "tc.label": "Rules",
+    "tc.title": "Terms & Conditions",
+    "tc.desc": "Please read carefully — these conditions govern all incentive payouts.",
+    "tc.1": "Incentive payout is based on your <strong>% achievement of Overall Weightage</strong>.",
+    "tc.2": "Weightage categories GA–75%, UAO–20%, New Shop–5% apply to all countries. All staff can earn <strong>up to a maximum of 120%</strong> of the eligible amount.",
+    "tc.3": "<strong>Preloaded SIM Cards:</strong> Field staff are eligible for extra incentives on preloaded SIM tertiary sales (sold to retailer) as per face-value slabs.",
+    "tc.4": "Preloaded Bundle SIM sales deducted from the Retailer POS balance will <strong>not</strong> be considered. <strong>Only Bank Transfer or Cash sales</strong> are taken into account.",
+    "tc.5": "If a preloaded SIM is offered for <strong>free</strong>, it will not be included in the incentive calculation.",
+    "tc.6": "Retailers purchasing pre-loaded plans in quantities of <strong>1,000 or more</strong> are only eligible for <strong>50% of the given incentive scheme</strong>.",
+    "tc.7": "Preloaded SIM commission payout is linked to GA/UAO targets. Performance should be considered in all cases.",
+    "tc.8": "Zone Managers must be <strong>allocated to one zone only</strong> for payout to be calculated.",
+    "tc.9": "The company reserves the right to <strong>change the incentive scheme or zone</strong> for any sales rep at any time.",
+    "tc.10": "For Sales Rep / TL / Area Manager / Regional Manager — <strong>90% attendance is mandatory</strong> to be eligible for incentive, unless there are pre-approved Holidays validated by Sales / Ops / HR before Finance disbursement.",
+    "tc.11": "Zone reallocation or changing staff zones is <strong>not permitted without management approval</strong>. Reps must manage a zone for at least one full calendar month (except new hires filling vacant zones).",
+    "tc.12": "Sales Head and Office Managers are responsible for achieving <strong>80% of the PAYM target</strong> to enrol in the PAYG incentive calculation.",
+    "tc.mandatory.title": "⚠ Mandatory Conditions",
+    "tc.mandatory.1": "Must achieve <strong>90% of the Overall Weightage</strong> to be eligible for any incentive payout.",
+    "tc.mandatory.2": "Preloaded tertiary sales incentive: performance must be considered.",
+    "tc.mandatory.3": "There must be growth in performance compared to the same month last year and the previous month of the current year. The business will make decisions based on each individual's performance and growth.",
+    "tc.mandatory.4": "All fraudulent sales / sales returns / 90-day port-outs / clawbacks will be deducted from sales achievement.",
+    "footer.main": "Lycamobile Italy · Sales Team Incentive Programme · 2026",
+    "footer.sub": "This document is for internal staff use only. Subject to change at management discretion."
+  },
+
+  it: {
+    "nav.roles": "Ruoli",
+    "nav.weightage": "Ponderazione",
+    "nav.payouts": "Premi",
+    "nav.calculator": "Calcolatore",
+    "nav.terms": "T&C",
+    "hero.badge": "2026 · Italia",
+    "hero.title": "Team di Vendita<br><em>Programma Incentivi</em>",
+    "hero.desc": "Tutto quello che devi sapere su come viene calcolato il tuo incentivo mensile — obiettivi, ponderazioni, fasce di pagamento e condizioni.",
+    "hero.cta1": "Calcola il Mio Incentivo",
+    "hero.cta2": "Visualizza le Fasce",
+    "roles.label": "Fascia Mensile",
+    "roles.title": "Il Tuo Importo Incentivo Fisso",
+    "roles.desc": "Il pagamento massimo è limitato al 120% dell'importo idoneo.",
+    "roles.rm.label": "Leadership",
+    "roles.rm.title": "Responsabile Regionale",
+    "roles.om.label": "Gestione",
+    "roles.om.title": "Responsabile di Ufficio",
+    "roles.zm.label": "Operazioni sul Campo",
+    "roles.zm.title": "Responsabile di Zona",
+    "roles.perMonth": "/ mese",
+    "roles.maxAt": "Max al 120%:",
+    "how.label": "Processo",
+    "how.title": "Come Viene Calcolato il Tuo Incentivo",
+    "how.s1.title": "Misura le Prestazioni",
+    "how.s1.desc": "I tuoi risultati mensili vengono monitorati su tre metriche: GA, UAO e Nuovi Negozi (NA).",
+    "how.s2.title": "Calcola la Ponderazione",
+    "how.s2.desc": "Ogni metrica viene ponderata e combinata in un unico punteggio di Ponderazione Complessiva %.",
+    "how.s3.title": "Guadagna la Commissione",
+    "how.s3.desc": "La tua Ponderazione Complessiva % determina quale % della tua fascia fissa ricevi quel mese.",
+    "weight.label": "Metriche",
+    "weight.title": "Struttura di Ponderazione delle Prestazioni",
+    "weight.desc": "Tre KPI si combinano per formare la tua Ponderazione Complessiva % ogni mese.",
+    "weight.ga.title": "Aggiunte Lorde",
+    "weight.ga.desc": "Nuove vendite SIM attive registrate nella tua zona. Include: Nuova Attivazione + FCA + Attivazione Piano.",
+    "weight.ga.note": "Peso maggiore — concentrati qui prima.",
+    "weight.uao.title": "Punti Vendita Attivi Unici",
+    "weight.uao.desc": "Il numero di punti vendita che hanno registrato almeno 1 vendita GA nel mese corrente.",
+    "weight.uao.note": "Distribuisci l'attività su tutta la rete di rivenditori.",
+    "weight.na.title": "Nuovi Negozi",
+    "weight.na.desc": "Negozi nuovi aggiunti e inseriti secondo i criteri e i requisiti definiti.",
+    "weight.na.note": "Peso minore, ma conta verso la soglia del 90%.",
+    "payout.label": "Guadagni",
+    "payout.title": "Fasce di Pagamento Incentivi",
+    "payout.desc": "Seleziona il tuo ruolo per vedere gli importi esatti.",
+    "payout.tab.zm": "Resp. di Zona (€700)",
+    "payout.tab.om": "Resp. di Ufficio (€1.000)",
+    "payout.tab.rm": "Resp. Regionale (€1.500)",
+    "payout.th.weightage": "Ponderazione Complessiva",
+    "payout.th.pct": "% della Fascia",
+    "payout.th.earned": "Incentivo Guadagnato",
+    "payout.th.status": "Stato",
+    "payout.threshold": "<strong>Soglia Obbligatoria:</strong> Devi raggiungere un minimo dell'<strong>90% di Ponderazione Complessiva</strong> per avere diritto a qualsiasi pagamento incentivo. Un risultato inferiore al 90% comporta €0 indipendentemente dai punteggi individuali.",
+    "payout.slab.lt90": "Meno del 90%",
+    "payout.slab.90": "90% – 94%",
+    "payout.slab.95": "95% – 99%",
+    "payout.slab.100": "100% – 105%",
+    "payout.slab.106": "106% – 119%",
+    "payout.slab.120": "120% e oltre",
+    "payout.badge.zero": "Nessun Pagamento",
+    "payout.badge.on": "⭐ Obiettivo Raggiunto",
+    "payout.badge.max": "🏆 Cap Massimo",
+    "calc.label": "Strumento",
+    "calc.title": "Stima il Tuo Incentivo",
+    "calc.desc": "Inserisci i tuoi obiettivi e i dati MTD effettivi per vedere il pagamento previsto.",
+    "calc.cardTitle": "💰 Calcolatore Incentivi",
+    "calc.cardSub": "I risultati sono stime. Il pagamento finale è soggetto a tutti i T&C.",
+    "calc.gaTarget": "Obiettivo GA",
+    "calc.gaActual": "GA Effettivo (MTD)",
+    "calc.uaoTarget": "Obiettivo UAO",
+    "calc.uaoActual": "UAO Effettivo (MTD)",
+    "calc.naTarget": "Obiettivo NA",
+    "calc.naNote": "(Nuovi Negozi)",
+    "calc.naActual": "NA Effettivo (MTD)",
+    "calc.result.label": "Incentivo Stimato",
+    "calc.result.placeholder": "Inserisci i tuoi obiettivi sopra",
+    "calc.result.overallLabel": "Ponderazione Complessiva",
+    "calc.warn": "⚠️ Sotto il 90% — nessun pagamento emesso. Continua a spingere per raggiungere la soglia!",
+    "calc.slab.below": "Sotto la soglia — nessun pagamento",
+    "calc.slab.50": "50% della fascia (90–94%)",
+    "calc.slab.80": "80% della fascia (95–99%)",
+    "calc.slab.100": "100% — Obiettivo ⭐",
+    "calc.slab.110": "110% — Sopra l'Obiettivo",
+    "calc.slab.120": "120% — Cap Massimo 🏆",
+    "tc.label": "Regole",
+    "tc.title": "Termini e Condizioni",
+    "tc.desc": "Si prega di leggere attentamente — queste condizioni regolano tutti i pagamenti degli incentivi.",
+    "tc.1": "Il pagamento dell'incentivo si basa sul tuo <strong>% di raggiungimento della Ponderazione Complessiva</strong>.",
+    "tc.2": "Le categorie GA–75%, UAO–20%, Nuovo Negozio–5% si applicano a tutti i paesi. Tutto il personale può guadagnare <strong>fino a un massimo del 120%</strong> dell'importo idoneo.",
+    "tc.3": "<strong>SIM Precaricate:</strong> Il personale sul campo ha diritto a incentivi extra sulle vendite terziarie di SIM precaricate (vendute al rivenditore) secondo le fasce di valore nominale.",
+    "tc.4": "Le vendite di SIM Bundle precaricate dedotte dal saldo POS del Rivenditore <strong>non</strong> saranno considerate. <strong>Solo i bonifici bancari o le vendite in contanti</strong> vengono presi in considerazione.",
+    "tc.5": "Se una SIM precaricata viene offerta <strong>gratuitamente</strong>, non sarà inclusa nel calcolo dell'incentivo.",
+    "tc.6": "I rivenditori che acquistano piani precaricati in quantità di <strong>1.000 o più</strong> hanno diritto solo al <strong>50% dello schema di incentivi</strong>.",
+    "tc.7": "Il pagamento della commissione SIM precaricata è collegato agli obiettivi GA/UAO. Le prestazioni devono essere considerate in tutti i casi.",
+    "tc.8": "I Responsabili di Zona devono essere <strong>assegnati a una sola zona</strong> per il calcolo del pagamento.",
+    "tc.9": "L'azienda si riserva il diritto di <strong>modificare lo schema di incentivi o la zona</strong> per qualsiasi rappresentante in qualsiasi momento.",
+    "tc.10": "Per Agenti / TL / Area Manager / Responsabile Regionale — è <strong>obbligatoria una presenza del 90%</strong> per avere diritto all'incentivo, salvo ferie pre-approvate validate da Vendite / Ops / HR prima del pagamento Finance.",
+    "tc.11": "La riallocazione di zona o la modifica delle zone del personale <strong>non è consentita senza l'approvazione della direzione</strong>. Gli agenti devono gestire una zona per almeno un mese solare completo (eccetto le nuove assunzioni che coprono zone vacanti).",
+    "tc.12": "Il Sales Head e i Responsabili di Ufficio sono responsabili del raggiungimento dell'<strong>80% dell'obiettivo PAYM</strong> per iscriversi al calcolo degli incentivi PAYG.",
+    "tc.mandatory.title": "⚠ Condizioni Obbligatorie",
+    "tc.mandatory.1": "Deve raggiungere il <strong>90% della Ponderazione Complessiva</strong> per avere diritto a qualsiasi pagamento di incentivo.",
+    "tc.mandatory.2": "Incentivo vendite terziarie precaricate: le prestazioni devono essere considerate.",
+    "tc.mandatory.3": "Deve esserci crescita nelle prestazioni rispetto allo stesso mese dell'anno scorso e al mese precedente dell'anno in corso. L'azienda prenderà decisioni basate sulle prestazioni e sulla crescita di ogni individuo.",
+    "tc.mandatory.4": "Tutte le vendite fraudolente / resi / port-out di 90 giorni / storni verranno dedotti dal raggiungimento delle vendite.",
+    "footer.main": "Lycamobile Italia · Programma Incentivi Team di Vendita · 2026",
+    "footer.sub": "Questo documento è solo per uso interno del personale. Soggetto a modifiche a discrezione della direzione."
+  },
+
+  ta: {
+    "nav.roles": "பாத்திரங்கள்",
+    "nav.weightage": "எடை",
+    "nav.payouts": "பணம்",
+    "nav.calculator": "கணக்கி",
+    "nav.terms": "விதிமுறைகள்",
+    "hero.badge": "2026 · இத்தாலி",
+    "hero.title": "விற்பனை குழு<br><em>ஊக்கத்தொகை திட்டம்</em>",
+    "hero.desc": "உங்கள் மாதாந்திர ஊக்கத்தொகை எவ்வாறு கணக்கிடப்படுகிறது என்பதை அறிய வேண்டிய அனைத்தும் — இலக்குகள், எடை, பணம் வரம்புகள் மற்றும் நிபந்தனைகள்.",
+    "hero.cta1": "என் ஊக்கத்தொகையை கணக்கிடு",
+    "hero.cta2": "பணம் வரம்புகளை பார்",
+    "roles.label": "மாதாந்திர வரம்பு",
+    "roles.title": "உங்கள் நிலையான ஊக்கத்தொகை",
+    "roles.desc": "அதிகபட்ச பணம் தகுதியான தொகையில் 120% வரை மட்டுமே.",
+    "roles.rm.label": "தலைமை",
+    "roles.rm.title": "பிராந்திய மேலாளர்",
+    "roles.om.label": "மேலாண்மை",
+    "roles.om.title": "அலுவலக மேலாளர்",
+    "roles.zm.label": "வயல் நடவடிக்கைகள்",
+    "roles.zm.title": "மண்டல மேலாளர்",
+    "roles.perMonth": "/ மாதம்",
+    "roles.maxAt": "120% இல் அதிகபட்சம்:",
+    "how.label": "செயல்முறை",
+    "how.title": "உங்கள் ஊக்கத்தொகை எப்படி கணக்கிடப்படுகிறது",
+    "how.s1.title": "செயல்திறனை அளவிடுக",
+    "how.s1.desc": "உங்கள் மாதாந்திர முடிவுகள் மூன்று அளவீடுகளில் கண்காணிக்கப்படுகின்றன: GA, UAO மற்றும் புதிய கடைகள் (NA).",
+    "how.s2.title": "எடையை கணக்கிடுக",
+    "how.s2.desc": "ஒவ்வொரு அளவீடும் எடையிடப்பட்டு ஒட்டுமொத்த எடை % மதிப்பெண்ணில் ஒருங்கிணைக்கப்படுகிறது.",
+    "how.s3.title": "கமிஷன் சம்பாதிக்கவும்",
+    "how.s3.desc": "உங்கள் ஒட்டுமொத்த எடை % அந்த மாதம் நீங்கள் பெறும் வரம்பின் % நிர்ணயிக்கிறது.",
+    "weight.label": "அளவீடுகள்",
+    "weight.title": "செயல்திறன் எடை கட்டமைப்பு",
+    "weight.desc": "மூன்று KPI கள் ஒவ்வொரு மாதமும் உங்கள் ஒட்டுமொத்த எடை % உருவாக்குகின்றன.",
+    "weight.ga.title": "மொத்த சேர்க்கைகள்",
+    "weight.ga.desc": "உங்கள் மண்டலத்தில் பதிவுசெய்யப்பட்ட புதிய செயலில் உள்ள SIM விற்பனை. உள்ளடக்கியது: புதிய செயல்படுத்தல் + FCA + திட்ட செயல்படுத்தல்.",
+    "weight.ga.note": "அதிக எடை — முதலில் இங்கே கவனம் செலுத்துங்கள்.",
+    "weight.uao.title": "தனித்துவமான செயலில் உள்ள கடைகள்",
+    "weight.uao.desc": "நடப்பு மாதத்தில் குறைந்தது 1 GA விற்பனையை பதிவுசெய்த கடைகளின் எண்ணிக்கை.",
+    "weight.uao.note": "உங்கள் முழு சில்லறை நெட்வொர்க்கிலும் செயல்பாட்டை பரப்புங்கள்.",
+    "weight.na.title": "புதிய கடைகள்",
+    "weight.na.desc": "வரையறுக்கப்பட்ட அளவுகோல்கள் மற்றும் தேவைகளுக்கு இணங்க புதிதாக சேர்க்கப்பட்ட கடைகள்.",
+    "weight.na.note": "சிறிய எடை, ஆனால் 90% வரம்பை நோக்கி கணக்கிடப்படுகிறது.",
+    "payout.label": "வருவாய்",
+    "payout.title": "ஊக்கத்தொகை வரம்புகள்",
+    "payout.desc": "சரியான தொகைகளை பார்க்க உங்கள் பாத்திரத்தை தேர்ந்தெடுக்கவும்.",
+    "payout.tab.zm": "மண்டல மேலாளர் (€700)",
+    "payout.tab.om": "அலுவலக மேலாளர் (€1,000)",
+    "payout.tab.rm": "பிராந்திய மேலாளர் (€1,500)",
+    "payout.th.weightage": "ஒட்டுமொத்த எடை",
+    "payout.th.pct": "வரம்பின் %",
+    "payout.th.earned": "சம்பாதித்த ஊக்கத்தொகை",
+    "payout.th.status": "நிலை",
+    "payout.threshold": "<strong>கட்டாய வரம்பு:</strong> எந்தவொரு ஊக்கத்தொகை பணத்திற்கும் தகுதி பெற குறைந்தது <strong>90% ஒட்டுமொத்த எடை</strong> அடைய வேண்டும். 90% க்கும் கீழே உள்ள சாதனை தனிப்பட்ட மதிப்பெண்களை பொருட்படுத்தாமல் €0 ஆகும்.",
+    "payout.slab.lt90": "90% க்கும் குறைவு",
+    "payout.slab.90": "90% – 94%",
+    "payout.slab.95": "95% – 99%",
+    "payout.slab.100": "100% – 105%",
+    "payout.slab.106": "106% – 119%",
+    "payout.slab.120": "120% மற்றும் அதிகம்",
+    "payout.badge.zero": "பணமில்லை",
+    "payout.badge.on": "⭐ இலக்கில் உள்ளது",
+    "payout.badge.max": "🏆 அதிகபட்சம்",
+    "calc.label": "கருவி",
+    "calc.title": "உங்கள் ஊக்கத்தொகையை மதிப்பிடுங்கள்",
+    "calc.desc": "உங்கள் திட்டமிட்ட பணத்தை பார்க்க இலக்குகள் மற்றும் MTD தரவை உள்ளிடுக.",
+    "calc.cardTitle": "💰 ஊக்கத்தொகை கணக்கி",
+    "calc.cardSub": "முடிவுகள் மதிப்பீடுகள். இறுதி பணம் அனைத்து T&C க்கும் உட்பட்டது.",
+    "calc.gaTarget": "GA இலக்கு",
+    "calc.gaActual": "GA உண்மையான (MTD)",
+    "calc.uaoTarget": "UAO இலக்கு",
+    "calc.uaoActual": "UAO உண்மையான (MTD)",
+    "calc.naTarget": "NA இலக்கு",
+    "calc.naNote": "(புதிய கடைகள்)",
+    "calc.naActual": "NA உண்மையான (MTD)",
+    "calc.result.label": "மதிப்பிடப்பட்ட ஊக்கத்தொகை",
+    "calc.result.placeholder": "மேலே உங்கள் இலக்குகளை உள்ளிடுக",
+    "calc.result.overallLabel": "ஒட்டுமொத்த எடை",
+    "calc.warn": "⚠️ 90% க்கும் கீழே — பணம் வழங்கப்படவில்லை. வரம்பை அடைய தொடர்ந்து முயற்சியுங்கள்!",
+    "calc.slab.below": "வரம்புக்கு கீழே — பணமில்லை",
+    "calc.slab.50": "வரம்பின் 50% (90–94%)",
+    "calc.slab.80": "வரம்பின் 80% (95–99%)",
+    "calc.slab.100": "100% — இலக்கில் ⭐",
+    "calc.slab.110": "110% — இலக்குக்கு மேல்",
+    "calc.slab.120": "120% — அதிகபட்சம் 🏆",
+    "tc.label": "விதிகள்",
+    "tc.title": "விதிமுறைகள் மற்றும் நிபந்தனைகள்",
+    "tc.desc": "கவனமாக படிக்கவும் — இந்த நிபந்தனைகள் அனைத்து ஊக்கத்தொகை பணங்களையும் நிர்வகிக்கின்றன.",
+    "tc.1": "ஊக்கத்தொகை பணம் உங்கள் <strong>ஒட்டுமொத்த எடையின் % சாதனையை</strong> அடிப்படையாகக் கொண்டது.",
+    "tc.2": "எடை வகைகள் GA–75%, UAO–20%, புதிய கடை–5% அனைத்து நாடுகளுக்கும் பொருந்தும். அனைத்து ஊழியர்களும் தகுதியான தொகையில் <strong>அதிகபட்சம் 120% வரை</strong> சம்பாதிக்கலாம்.",
+    "tc.3": "<strong>முன்னுரிமை SIM அட்டைகள்:</strong> கள பணியாளர்கள் சில்லறை விற்பனையாளருக்கு விற்கப்படும் முன்னுரிமை SIM மூன்றாம் நிலை விற்பனையில் கூடுதல் ஊக்கத்தொகைக்கு தகுதியுடையவர்கள்.",
+    "tc.4": "சில்லறை விற்பனையாளர் POS இருப்பிலிருந்து கழிக்கப்படும் முன்னுரிமை Bundle SIM விற்பனை <strong>கணக்கில் எடுக்கப்படாது</strong>. <strong>வங்கி பரிமாற்றம் அல்லது பண விற்பனை மட்டுமே</strong> கணக்கில் எடுக்கப்படும்.",
+    "tc.5": "முன்னுரிமை SIM <strong>இலவசமாக</strong> வழங்கப்பட்டால், ஊக்கத்தொகை கணக்கீட்டில் சேர்க்கப்படாது.",
+    "tc.6": "<strong>1,000 அல்லது அதிகமான</strong> அளவில் முன்னுரிமை திட்டங்களை வாங்கும் சில்லறை விற்பனையாளர்கள் <strong>கொடுக்கப்பட்ட ஊக்கத்தொகை திட்டத்தின் 50% மட்டுமே</strong> தகுதியுடையவர்கள்.",
+    "tc.7": "முன்னுரிமை SIM கமிஷன் பணம் GA/UAO இலக்குகளுடன் இணைக்கப்பட்டுள்ளது. அனைத்து சந்தர்ப்பங்களிலும் செயல்திறன் கணக்கில் எடுக்கப்பட வேண்டும்.",
+    "tc.8": "மண்டல மேலாளர்கள் பணம் கணக்கிடுவதற்கு <strong>ஒரு மண்டலத்தில் மட்டுமே</strong> ஒதுக்கப்பட வேண்டும்.",
+    "tc.9": "நிறுவனம் எந்த விற்பனை பிரதிநிதிக்கும் எந்த நேரத்திலும் <strong>ஊக்கத்தொகை திட்டம் அல்லது மண்டலத்தை மாற்ற</strong> உரிமை கொண்டுள்ளது.",
+    "tc.10": "விற்பனை பிரதிநிதி / TL / பகுதி மேலாளர் / பிராந்திய மேலாளருக்கு — ஊக்கத்தொகைக்கு தகுதி பெற <strong>90% வருகை கட்டாயம்</strong>, நிதி வழங்கலுக்கு முன் விற்பனை / Ops / HR ஆல் சரிபார்க்கப்பட்ட முன் அனுமதிக்கப்பட்ட விடுமுறைகள் தவிர.",
+    "tc.11": "மண்டல மறு ஒதுக்கீடு அல்லது ஊழியர் மண்டலங்களை மாற்றுவது <strong>மேலாண்மை அனுமதியின்றி அனுமதிக்கப்படாது</strong>. பிரதிநிதிகள் குறைந்தது ஒரு முழு நாட்காட்டி மாதத்திற்கு ஒரு மண்டலத்தை நிர்வகிக்க வேண்டும்.",
+    "tc.12": "விற்பனை தலைவர் மற்றும் அலுவலக மேலாளர்கள் PAYG ஊக்கத்தொகை கணக்கீட்டில் பதிவு பெற <strong>PAYM இலக்கின் 80% அடைய</strong> பொறுப்பு.",
+    "tc.mandatory.title": "⚠ கட்டாய நிபந்தனைகள்",
+    "tc.mandatory.1": "எந்தவொரு ஊக்கத்தொகை பணத்திற்கும் தகுதி பெற <strong>ஒட்டுமொத்த எடையின் 90% அடைய</strong> வேண்டும்.",
+    "tc.mandatory.2": "முன்னுரிமை மூன்றாம் நிலை விற்பனை ஊக்கத்தொகை: செயல்திறன் கணக்கில் எடுக்கப்பட வேண்டும்.",
+    "tc.mandatory.3": "கடந்த ஆண்டின் அதே மாதம் மற்றும் நடப்பு ஆண்டின் முந்தைய மாதத்துடன் ஒப்பிட்டு செயல்திறனில் வளர்ச்சி இருக்க வேண்டும்.",
+    "tc.mandatory.4": "அனைத்து மோசடி விற்பனைகள் / விற்பனை திரும்புதல்கள் / 90-நாள் port-out கள் / clawback கள் விற்பனை சாதனையிலிருந்து கழிக்கப்படும்.",
+    "footer.main": "Lycamobile இத்தாலி · விற்பனை குழு ஊக்கத்தொகை திட்டம் · 2026",
+    "footer.sub": "இந்த ஆவணம் உள் ஊழியர்களுக்கு மட்டுமே. மேலாண்மை விருப்பப்படி மாற்றங்களுக்கு உட்பட்டது."
+  },
+
+  bn: {
+    "nav.roles": "ভূমিকা",
+    "nav.weightage": "ওজন",
+    "nav.payouts": "পেআউট",
+    "nav.calculator": "ক্যালকুলেটর",
+    "nav.terms": "শর্তাবলী",
+    "hero.badge": "২০২৬ · ইতালি",
+    "hero.title": "বিক্রয় দল<br><em>ইনসেন্টিভ প্রোগ্রাম</em>",
+    "hero.desc": "আপনার মাসিক ইনসেন্টিভ কীভাবে গণনা করা হয় তা জানার জন্য আপনার প্রয়োজনীয় সবকিছু — লক্ষ্য, ওজন, পেআউট স্ল্যাব এবং শর্তাবলী।",
+    "hero.cta1": "আমার ইনসেন্টিভ গণনা করুন",
+    "hero.cta2": "পেআউট স্ল্যাব দেখুন",
+    "roles.label": "মাসিক স্ল্যাব",
+    "roles.title": "আপনার নির্ধারিত ইনসেন্টিভ পরিমাণ",
+    "roles.desc": "সর্বোচ্চ পেআউট আপনার যোগ্য পরিমাণের ১২০%-এ সীমাবদ্ধ।",
+    "roles.rm.label": "নেতৃত্ব",
+    "roles.rm.title": "আঞ্চলিক ব্যবস্থাপক",
+    "roles.om.label": "ব্যবস্থাপনা",
+    "roles.om.title": "অফিস ব্যবস্থাপক",
+    "roles.zm.label": "মাঠ কার্যক্রম",
+    "roles.zm.title": "জোন ব্যবস্থাপক",
+    "roles.perMonth": "/ মাস",
+    "roles.maxAt": "১২০%-এ সর্বোচ্চ:",
+    "how.label": "প্রক্রিয়া",
+    "how.title": "আপনার ইনসেন্টিভ কীভাবে গণনা করা হয়",
+    "how.s1.title": "কর্মক্ষমতা পরিমাপ করুন",
+    "how.s1.desc": "আপনার মাসিক ফলাফল তিনটি মেট্রিক্সে ট্র্যাক করা হয়: GA, UAO এবং নতুন দোকান (NA)।",
+    "how.s2.title": "ওজন গণনা করুন",
+    "how.s2.desc": "প্রতিটি মেট্রিক ওজন করা হয় এবং একটি সামগ্রিক ওজন % স্কোরে একত্রিত করা হয়।",
+    "how.s3.title": "কমিশন অর্জন করুন",
+    "how.s3.desc": "আপনার সামগ্রিক ওজন % নির্ধারণ করে যে আপনি সেই মাসে আপনার নির্ধারিত স্ল্যাবের কত % পাবেন।",
+    "weight.label": "মেট্রিক্স",
+    "weight.title": "কর্মক্ষমতা ওজন কাঠামো",
+    "weight.desc": "তিনটি KPI প্রতি মাসে আপনার সামগ্রিক ওজন % গঠন করে।",
+    "weight.ga.title": "মোট সংযোজন",
+    "weight.ga.desc": "আপনার এলাকায় নিবন্ধিত নতুন সক্রিয় SIM বিক্রয়। অন্তর্ভুক্ত: নতুন সক্রিয়করণ + FCA + প্ল্যান সক্রিয়করণ।",
+    "weight.ga.note": "সর্বোচ্চ ওজন — প্রথমে এখানে মনোযোগ দিন।",
+    "weight.uao.title": "অনন্য সক্রিয় আউটলেট",
+    "weight.uao.desc": "চলতি মাসে কমপক্ষে ১টি GA বিক্রয় রেকর্ড করা আউটলেটের সংখ্যা।",
+    "weight.uao.note": "আপনার সম্পূর্ণ খুচরা নেটওয়ার্কে কার্যকলাপ ছড়িয়ে দিন।",
+    "weight.na.title": "নতুন দোকান",
+    "weight.na.desc": "নির্ধারিত মানদণ্ড এবং প্রয়োজনীয়তা অনুযায়ী নতুনভাবে যোগ করা দোকান।",
+    "weight.na.note": "ছোট ওজন, কিন্তু ৯০% থ্রেশহোল্ডের দিকে গণনা করা হয়।",
+    "payout.label": "আয়",
+    "payout.title": "ইনসেন্টিভ পেআউট স্ল্যাব",
+    "payout.desc": "সঠিক পরিমাণ দেখতে আপনার ভূমিকা নির্বাচন করুন।",
+    "payout.tab.zm": "জোন ব্যবস্থাপক (€৭০০)",
+    "payout.tab.om": "অফিস ব্যবস্থাপক (€১,০০০)",
+    "payout.tab.rm": "আঞ্চলিক ব্যবস্থাপক (€১,৫০০)",
+    "payout.th.weightage": "সামগ্রিক ওজন",
+    "payout.th.pct": "স্ল্যাবের %",
+    "payout.th.earned": "অর্জিত ইনসেন্টিভ",
+    "payout.th.status": "অবস্থা",
+    "payout.threshold": "<strong>বাধ্যতামূলক থ্রেশহোল্ড:</strong> যেকোনো ইনসেন্টিভ পেআউটের জন্য যোগ্য হতে আপনাকে সর্বনিম্ন <strong>৯০% সামগ্রিক ওজন</strong> অর্জন করতে হবে। ৯০%-এর নিচে অর্জন €০ হবে।",
+    "payout.slab.lt90": "৯০%-এর কম",
+    "payout.slab.90": "৯০% – ৯৪%",
+    "payout.slab.95": "৯৫% – ৯৯%",
+    "payout.slab.100": "১০০% – ১০৫%",
+    "payout.slab.106": "১০৬% – ১১৯%",
+    "payout.slab.120": "১২০% এবং তার বেশি",
+    "payout.badge.zero": "কোনো পেআউট নেই",
+    "payout.badge.on": "⭐ লক্ষ্যে আছেন",
+    "payout.badge.max": "🏆 সর্বোচ্চ সীমা",
+    "calc.label": "টুল",
+    "calc.title": "আপনার ইনসেন্টিভ অনুমান করুন",
+    "calc.desc": "আপনার প্রক্ষেপিত পেআউট দেখতে লক্ষ্য এবং MTD ডেটা লিখুন।",
+    "calc.cardTitle": "💰 ইনসেন্টিভ ক্যালকুলেটর",
+    "calc.cardSub": "ফলাফল অনুমান। চূড়ান্ত পেআউট সমস্ত T&C সাপেক্ষে।",
+    "calc.gaTarget": "GA লক্ষ্য",
+    "calc.gaActual": "GA প্রকৃত (MTD)",
+    "calc.uaoTarget": "UAO লক্ষ্য",
+    "calc.uaoActual": "UAO প্রকৃত (MTD)",
+    "calc.naTarget": "NA লক্ষ্য",
+    "calc.naNote": "(নতুন দোকান)",
+    "calc.naActual": "NA প্রকৃত (MTD)",
+    "calc.result.label": "আনুমানিক ইনসেন্টিভ",
+    "calc.result.placeholder": "উপরে আপনার লক্ষ্য লিখুন",
+    "calc.result.overallLabel": "সামগ্রিক ওজন",
+    "calc.warn": "⚠️ ৯০%-এর নিচে — কোনো পেআউট জারি করা হয় না। থ্রেশহোল্ড পৌঁছাতে চেষ্টা চালিয়ে যান!",
+    "calc.slab.below": "থ্রেশহোল্ডের নিচে — কোনো পেআউট নেই",
+    "calc.slab.50": "স্ল্যাবের ৫০% (৯০–৯৪%)",
+    "calc.slab.80": "স্ল্যাবের ৮০% (৯৫–৯৯%)",
+    "calc.slab.100": "১০০% — লক্ষ্যে ⭐",
+    "calc.slab.110": "১১০% — লক্ষ্যের উপরে",
+    "calc.slab.120": "১২০% — সর্বোচ্চ সীমা 🏆",
+    "tc.label": "নিয়মাবলী",
+    "tc.title": "শর্তাবলী",
+    "tc.desc": "সাবধানে পড়ুন — এই শর্তগুলি সমস্ত ইনসেন্টিভ পেআউট পরিচালনা করে।",
+    "tc.1": "ইনসেন্টিভ পেআউট আপনার <strong>সামগ্রিক ওজনের % অর্জনের</strong> উপর ভিত্তি করে।",
+    "tc.2": "ওজন বিভাগ GA–৭৫%, UAO–২০%, নতুন দোকান–৫% সমস্ত দেশে প্রযোজ্য। সমস্ত কর্মীরা যোগ্য পরিমাণের <strong>সর্বোচ্চ ১২০% পর্যন্ত</strong> উপার্জন করতে পারেন।",
+    "tc.3": "<strong>প্রিলোডেড SIM কার্ড:</strong> মাঠ কর্মীরা খুচরা বিক্রেতাকে বিক্রয় করা প্রিলোডেড SIM তৃতীয় বিক্রয়ে অতিরিক্ত ইনসেন্টিভের জন্য যোগ্য।",
+    "tc.4": "খুচরা POS ব্যালেন্স থেকে কাটা প্রিলোডেড Bundle SIM বিক্রয় <strong>বিবেচনা করা হবে না</strong>। <strong>শুধুমাত্র ব্যাংক ট্রান্সফার বা নগদ বিক্রয়</strong> বিবেচনায় নেওয়া হয়।",
+    "tc.5": "যদি একটি প্রিলোডেড SIM <strong>বিনামূল্যে</strong> দেওয়া হয়, তা ইনসেন্টিভ গণনায় অন্তর্ভুক্ত হবে না।",
+    "tc.6": "<strong>১,০০০ বা তার বেশি</strong> পরিমাণে প্রি-লোডেড প্ল্যান ক্রয়কারী খুচরা বিক্রেতারা শুধুমাত্র <strong>ইনসেন্টিভ স্কিমের ৫০%</strong> পাওয়ার যোগ্য।",
+    "tc.7": "প্রিলোডেড SIM কমিশন পেআউট GA/UAO লক্ষ্যের সাথে সংযুক্ত। সব ক্ষেত্রে কর্মক্ষমতা বিবেচনা করা উচিত।",
+    "tc.8": "পেআউট গণনার জন্য জোন ম্যানেজারদের <strong>শুধুমাত্র একটি জোনে বরাদ্দ</strong> করতে হবে।",
+    "tc.9": "কোম্পানি যেকোনো সময় যেকোনো বিক্রয় প্রতিনিধির জন্য <strong>ইনসেন্টিভ স্কিম বা জোন পরিবর্তন</strong> করার অধিকার সংরক্ষণ করে।",
+    "tc.10": "বিক্রয় প্রতিনিধি / TL / এলাকা ব্যবস্থাপক / আঞ্চলিক ব্যবস্থাপকের জন্য — ইনসেন্টিভের জন্য যোগ্য হতে <strong>৯০% উপস্থিতি বাধ্যতামূলক</strong>।",
+    "tc.11": "জোন পুনর্বরাদ্দ বা কর্মী জোন পরিবর্তন <strong>ব্যবস্থাপনার অনুমোদন ছাড়া অনুমোদিত নয়</strong>।",
+    "tc.12": "বিক্রয় প্রধান এবং অফিস ব্যবস্থাপকরা PAYG ইনসেন্টিভ গণনায় নথিভুক্ত হতে <strong>PAYM লক্ষ্যের ৮০% অর্জনের</strong> জন্য দায়ী।",
+    "tc.mandatory.title": "⚠ বাধ্যতামূলক শর্তাবলী",
+    "tc.mandatory.1": "যেকোনো ইনসেন্টিভ পেআউটের জন্য <strong>সামগ্রিক ওজনের ৯০% অর্জন</strong> করতে হবে।",
+    "tc.mandatory.2": "প্রিলোডেড তৃতীয় বিক্রয় ইনসেন্টিভ: কর্মক্ষমতা বিবেচনা করতে হবে।",
+    "tc.mandatory.3": "গত বছরের একই মাস এবং চলতি বছরের আগের মাসের তুলনায় কর্মক্ষমতায় বৃদ্ধি থাকতে হবে।",
+    "tc.mandatory.4": "সমস্ত জালিয়াতি বিক্রয় / বিক্রয় রিটার্ন / ৯০-দিনের পোর্ট-আউট / ক্ল্যাউব্যাক বিক্রয় অর্জন থেকে কাটা হবে।",
+    "footer.main": "Lycamobile ইতালি · বিক্রয় দল ইনসেন্টিভ প্রোগ্রাম · ২০২৬",
+    "footer.sub": "এই নথি শুধুমাত্র অভ্যন্তরীণ কর্মীদের ব্যবহারের জন্য। ব্যবস্থাপনার বিবেচনায় পরিবর্তন সাপেক্ষে।"
+  },
+
+  ur: {
+    "nav.roles": "کردار",
+    "nav.weightage": "وزن",
+    "nav.payouts": "ادائیگی",
+    "nav.calculator": "کیلکولیٹر",
+    "nav.terms": "شرائط",
+    "hero.badge": "۲۰۲۶ · اٹلی",
+    "hero.title": "سیلز ٹیم<br><em>انسینٹو پروگرام</em>",
+    "hero.desc": "آپ کے ماہانہ انسینٹو کا حساب کیسے لگایا جاتا ہے — اہداف، وزن، ادائیگی کی سلیبیں اور شرائط کے بارے میں جاننے کے لیے تمام معلومات۔",
+    "hero.cta1": "میرا انسینٹو حساب کریں",
+    "hero.cta2": "ادائیگی سلیب دیکھیں",
+    "roles.label": "ماہانہ سلیب",
+    "roles.title": "آپ کی مقررہ انسینٹو رقم",
+    "roles.desc": "زیادہ سے زیادہ ادائیگی آپ کی اہل رقم کے ۱۲۰٪ تک محدود ہے۔",
+    "roles.rm.label": "قیادت",
+    "roles.rm.title": "علاقائی مینیجر",
+    "roles.om.label": "انتظامیہ",
+    "roles.om.title": "آفس مینیجر",
+    "roles.zm.label": "فیلڈ آپریشنز",
+    "roles.zm.title": "زون مینیجر",
+    "roles.perMonth": "/ ماہ",
+    "roles.maxAt": "۱۲۰٪ پر زیادہ سے زیادہ:",
+    "how.label": "عمل",
+    "how.title": "آپ کا انسینٹو کیسے حساب کیا جاتا ہے",
+    "how.s1.title": "کارکردگی ماپیں",
+    "how.s1.desc": "آپ کے ماہانہ نتائج تین میٹرکس پر ٹریک کیے جاتے ہیں: GA، UAO، اور نئی دکانیں (NA)۔",
+    "how.s2.title": "وزن حساب کریں",
+    "how.s2.desc": "ہر میٹرک کو وزن دیا جاتا ہے اور ایک مجموعی وزن % سکور میں یکجا کیا جاتا ہے۔",
+    "how.s3.title": "کمیشن کمائیں",
+    "how.s3.desc": "آپ کا مجموعی وزن % طے کرتا ہے کہ آپ اس مہینے اپنی مقررہ سلیب کا کتنا % حاصل کرتے ہیں۔",
+    "weight.label": "میٹرکس",
+    "weight.title": "کارکردگی وزن ڈھانچہ",
+    "weight.desc": "تین KPIs ہر ماہ آپ کا مجموعی وزن % بناتے ہیں۔",
+    "weight.ga.title": "مجموعی اضافے",
+    "weight.ga.desc": "آپ کے زون میں رجسٹرڈ نئی فعال SIM فروخت۔ شامل ہے: نئی ایکٹیویشن + FCA + پلان ایکٹیویشن۔",
+    "weight.ga.note": "سب سے زیادہ وزن — پہلے یہاں توجہ دیں۔",
+    "weight.uao.title": "منفرد فعال آؤٹ لیٹس",
+    "weight.uao.desc": "وہ آؤٹ لیٹس کی تعداد جنہوں نے موجودہ مہینے میں کم از کم ۱ GA فروخت ریکارڈ کی۔",
+    "weight.uao.note": "اپنے پورے ریٹیلر نیٹ ورک میں سرگرمی پھیلائیں۔",
+    "weight.na.title": "نئی دکانیں",
+    "weight.na.desc": "مقررہ معیار اور ضروریات کے مطابق نئی شامل کردہ دکانیں۔",
+    "weight.na.note": "کم وزن، لیکن ۹۰٪ حد کی طرف شمار ہوتا ہے۔",
+    "payout.label": "آمدنی",
+    "payout.title": "انسینٹو ادائیگی سلیبیں",
+    "payout.desc": "صحیح رقم دیکھنے کے لیے اپنا کردار منتخب کریں۔",
+    "payout.tab.zm": "زون مینیجر (€۷۰۰)",
+    "payout.tab.om": "آفس مینیجر (€۱٫۰۰۰)",
+    "payout.tab.rm": "علاقائی مینیجر (€۱٫۵۰۰)",
+    "payout.th.weightage": "مجموعی وزن",
+    "payout.th.pct": "سلیب کا %",
+    "payout.th.earned": "کمایا گیا انسینٹو",
+    "payout.th.status": "حیثیت",
+    "payout.threshold": "<strong>لازمی حد:</strong> کسی بھی انسینٹو ادائیگی کے اہل ہونے کے لیے آپ کو کم از کم <strong>۹۰٪ مجموعی وزن</strong> حاصل کرنا ضروری ہے۔ ۹۰٪ سے کم حاصل کرنے پر €۰ ملے گا۔",
+    "payout.slab.lt90": "۹۰٪ سے کم",
+    "payout.slab.90": "۹۰٪ – ۹۴٪",
+    "payout.slab.95": "۹۵٪ – ۹۹٪",
+    "payout.slab.100": "۱۰۰٪ – ۱۰۵٪",
+    "payout.slab.106": "۱۰۶٪ – ۱۱۹٪",
+    "payout.slab.120": "۱۲۰٪ اور اس سے زیادہ",
+    "payout.badge.zero": "کوئی ادائیگی نہیں",
+    "payout.badge.on": "⭐ ہدف پر",
+    "payout.badge.max": "🏆 زیادہ سے زیادہ",
+    "calc.label": "آلہ",
+    "calc.title": "اپنے انسینٹو کا اندازہ لگائیں",
+    "calc.desc": "اپنی متوقع ادائیگی دیکھنے کے لیے اہداف اور MTD ڈیٹا درج کریں۔",
+    "calc.cardTitle": "💰 انسینٹو کیلکولیٹر",
+    "calc.cardSub": "نتائج تخمینے ہیں۔ حتمی ادائیگی تمام شرائط کے تابع ہے۔",
+    "calc.gaTarget": "GA ہدف",
+    "calc.gaActual": "GA اصل (MTD)",
+    "calc.uaoTarget": "UAO ہدف",
+    "calc.uaoActual": "UAO اصل (MTD)",
+    "calc.naTarget": "NA ہدف",
+    "calc.naNote": "(نئی دکانیں)",
+    "calc.naActual": "NA اصل (MTD)",
+    "calc.result.label": "تخمینی انسینٹو",
+    "calc.result.placeholder": "اوپر اپنے اہداف درج کریں",
+    "calc.result.overallLabel": "مجموعی وزن",
+    "calc.warn": "⚠️ ۹۰٪ سے کم — کوئی ادائیگی جاری نہیں کی جاتی۔ حد تک پہنچنے کے لیے کوشش جاری رکھیں!",
+    "calc.slab.below": "حد سے کم — کوئی ادائیگی نہیں",
+    "calc.slab.50": "سلیب کا ۵۰٪ (۹۰–۹۴٪)",
+    "calc.slab.80": "سلیب کا ۸۰٪ (۹۵–۹۹٪)",
+    "calc.slab.100": "۱۰۰٪ — ہدف پر ⭐",
+    "calc.slab.110": "۱۱۰٪ — ہدف سے اوپر",
+    "calc.slab.120": "۱۲۰٪ — زیادہ سے زیادہ 🏆",
+    "tc.label": "قوانین",
+    "tc.title": "شرائط و ضوابط",
+    "tc.desc": "براہ کرم غور سے پڑھیں — یہ شرائط تمام انسینٹو ادائیگیوں کو کنٹرول کرتی ہیں۔",
+    "tc.1": "انسینٹو ادائیگی آپ کے <strong>مجموعی وزن کے % حصول</strong> پر مبنی ہے۔",
+    "tc.2": "وزن کیٹیگریز GA–۷۵٪، UAO–۲۰٪، نئی دکان–۵٪ تمام ممالک پر لاگو ہوتی ہیں۔ تمام عملہ اہل رقم کے <strong>زیادہ سے زیادہ ۱۲۰٪ تک</strong> کما سکتا ہے۔",
+    "tc.3": "<strong>پری لوڈڈ SIM کارڈز:</strong> فیلڈ عملہ پری لوڈڈ SIM ثالثی فروخت پر اضافی انسینٹو کا اہل ہے۔",
+    "tc.4": "ریٹیلر POS بیلنس سے کاٹی گئی پری لوڈڈ بنڈل SIM فروخت <strong>نہیں</strong> مانی جائے گی۔ <strong>صرف بینک ٹرانسفر یا نقد فروخت</strong> کو مدنظر رکھا جاتا ہے۔",
+    "tc.5": "اگر پری لوڈڈ SIM <strong>مفت</strong> دی جائے تو اسے انسینٹو حساب میں شامل نہیں کیا جائے گا۔",
+    "tc.6": "<strong>۱٫۰۰۰ یا اس سے زیادہ</strong> کی تعداد میں پری لوڈڈ پلان خریدنے والے ریٹیلرز صرف <strong>انسینٹو اسکیم کے ۵۰٪</strong> کے اہل ہیں۔",
+    "tc.7": "پری لوڈڈ SIM کمیشن ادائیگی GA/UAO اہداف سے منسلک ہے۔ تمام صورتوں میں کارکردگی کا خیال رکھنا چاہیے۔",
+    "tc.8": "ادائیگی کے حساب کے لیے زون مینیجرز کو <strong>صرف ایک زون میں مختص</strong> ہونا ضروری ہے۔",
+    "tc.9": "کمپنی کسی بھی وقت کسی بھی سیلز نمائندے کے لیے <strong>انسینٹو اسکیم یا زون تبدیل</strong> کرنے کا حق رکھتی ہے۔",
+    "tc.10": "سیلز نمائندے / TL / ایریا مینیجر / علاقائی مینیجر کے لیے — انسینٹو کے اہل ہونے کے لیے <strong>۹۰٪ حاضری لازمی</strong> ہے۔",
+    "tc.11": "زون کی دوبارہ تقسیم یا عملے کے زون تبدیل کرنا <strong>انتظامیہ کی منظوری کے بغیر ممنوع</strong> ہے۔",
+    "tc.12": "سیلز ہیڈ اور آفس مینیجرز PAYG انسینٹو حساب میں داخلہ کے لیے <strong>PAYM ہدف کا ۸۰٪ حاصل</strong> کرنے کے ذمہ دار ہیں۔",
+    "tc.mandatory.title": "⚠ لازمی شرائط",
+    "tc.mandatory.1": "کسی بھی انسینٹو ادائیگی کے اہل ہونے کے لیے <strong>مجموعی وزن کا ۹۰٪ حاصل</strong> کرنا ضروری ہے۔",
+    "tc.mandatory.2": "پری لوڈڈ ثالثی فروخت انسینٹو: کارکردگی کا خیال رکھا جانا چاہیے۔",
+    "tc.mandatory.3": "گزشتہ سال کے اسی مہینے اور رواں سال کے پچھلے مہینے کے مقابلے میں کارکردگی میں اضافہ ہونا ضروری ہے۔",
+    "tc.mandatory.4": "تمام دھوکہ دہی کی فروخت / فروخت واپسی / ۹۰ دن کے پورٹ آؤٹ / کلاؤبیک فروخت کے حصول سے کاٹے جائیں گے۔",
+    "footer.main": "Lycamobile اٹلی · سیلز ٹیم انسینٹو پروگرام · ۲۰۲۶",
+    "footer.sub": "یہ دستاویز صرف اندرونی عملے کے استعمال کے لیے ہے۔ انتظامیہ کی صوابدید پر تبدیلی کے تابع۔"
+  }
+};
+
+// ═══════════════════════════════════════════════════════
+//  LANGUAGE ENGINE
+// ═══════════════════════════════════════════════════════
+let currentLang = 'en';
+
+function t(key) {
+  return (translations[currentLang] && translations[currentLang][key]) || translations['en'][key] || key;
+}
+
+function setLang(lang) {
+  currentLang = lang;
+  const isRTL = lang === 'ur';
+  document.documentElement.lang = lang;
+  document.body.classList.remove('rtl', 'lang-ta', 'lang-bn', 'lang-ur');
+  if (isRTL) {
+    document.body.classList.add('rtl', 'lang-ur');
+    document.documentElement.dir = 'rtl';
+  } else {
+    document.documentElement.dir = 'ltr';
+    if (lang === 'ta') document.body.classList.add('lang-ta');
+    if (lang === 'bn') document.body.classList.add('lang-bn');
+  }
+
+  // Update active button
+  document.querySelectorAll('.lang-opt').forEach(btn => {
+    btn.classList.toggle('active', btn.dataset.lang === lang);
+  });
+
+  // Update current label
+  const labels = { en: 'English', it: 'Italiano', ta: 'தமிழ்', bn: 'বাংলা', ur: 'اردو' };
+  document.getElementById('currentLangLabel').textContent = labels[lang];
+
+  // Translate all elements with data-i18n
+  document.querySelectorAll('[data-i18n]').forEach(el => {
+    const key = el.getAttribute('data-i18n');
+    el.textContent = t(key);
+  });
+
+  // Translate all elements with data-i18n-html (allows HTML tags)
+  document.querySelectorAll('[data-i18n-html]').forEach(el => {
+    const key = el.getAttribute('data-i18n-html');
+    el.innerHTML = t(key);
+  });
+
+  // Close dropdown
+  document.getElementById('langDropdown').classList.remove('open');
+
+  // Re-render table and reset calc detail
+  renderTable(currentSlab);
+
+  // Update tab labels
+  document.querySelectorAll('.rtab').forEach((btn, idx) => {
+    const keys = ['payout.tab.zm', 'payout.tab.om', 'payout.tab.rm'];
+    if (keys[idx]) btn.textContent = t(keys[idx]);
+  });
+
+  // Update calc role buttons
+  document.querySelectorAll('.crs-btn').forEach((btn, idx) => {
+    const keys = ['roles.zm.title', 'roles.om.title', 'roles.rm.title'];
+    if (keys[idx]) btn.textContent = t(keys[idx]);
+  });
+
+  // Reset calc detail placeholder if it's showing placeholder
+  const detailEl = document.getElementById('calcDetail');
+  if (detailEl && detailEl.getAttribute('data-i18n') === 'calc.result.placeholder') {
+    detailEl.textContent = t('calc.result.placeholder');
+  }
+}
+
+function toggleLangMenu() {
+  document.getElementById('langDropdown').classList.toggle('open');
+}
+
+// Close dropdown on outside click
+document.addEventListener('click', function(e) {
+  const switcher = document.querySelector('.lang-switcher');
+  if (!switcher.contains(e.target)) {
+    document.getElementById('langDropdown').classList.remove('open');
+  }
+});
+
+// ═══════════════════════════════════════════════════════
+//  PAYOUT TABLE
+// ═══════════════════════════════════════════════════════
+let currentSlab = 700;
+
+const slabDefs = [
+  { rangeKey: 'payout.slab.lt90', pct: 0,    badgeKey: 'payout.badge.zero', badgeClass: 'badge-zero' },
+  { rangeKey: 'payout.slab.90',   pct: 0.50, badgeKey: '', badgeClass: '' },
+  { rangeKey: 'payout.slab.95',   pct: 0.80, badgeKey: '', badgeClass: '' },
+  { rangeKey: 'payout.slab.100',  pct: 1.00, badgeKey: 'payout.badge.on', badgeClass: 'badge-on' },
+  { rangeKey: 'payout.slab.106',  pct: 1.10, badgeKey: '', badgeClass: '' },
+  { rangeKey: 'payout.slab.120',  pct: 1.20, badgeKey: 'payout.badge.max', badgeClass: 'badge-max' },
+];
+
+function renderTable(slab) {
+  const tbody = document.getElementById('payoutBody');
+  tbody.innerHTML = slabDefs.map((s, i) => {
+    const earned = (s.pct * slab).toFixed(2);
+    const highlight = (i === 3) ? 'highlight' : '';
+    const amtDisplay = s.pct === 0
+      ? `<span class="badge-zero">€0.00</span>`
+      : `<span class="amount-cell">€${earned}</span>`;
+    const badgeHTML = s.badgeKey
+      ? `<span class="${s.badgeClass}">${t(s.badgeKey)}</span>`
+      : '';
+    return `<tr class="${highlight}">
+      <td>${t(s.rangeKey)}</td>
+      <td>${(s.pct * 100).toFixed(0)}%</td>
+      <td>${amtDisplay}</td>
+      <td>${badgeHTML}</td>
+    </tr>`;
+  }).join('');
+}
+
+function switchRole(el, slab) {
+  document.querySelectorAll('.rtab').forEach(b => b.classList.remove('active'));
+  el.classList.add('active');
+  currentSlab = slab;
+  renderTable(slab);
+}
+
+renderTable(700);
+
+// ═══════════════════════════════════════════════════════
+//  CALCULATOR
+// ═══════════════════════════════════════════════════════
+let calcSlab = 700;
+
+function setCalcRole(el) {
+  document.querySelectorAll('.crs-btn').forEach(b => b.classList.remove('active'));
+  el.classList.add('active');
+  calcSlab = parseInt(el.dataset.slab);
+  calcIncentive();
+}
+
+function calcIncentive() {
+  const gaT  = parseFloat(document.getElementById('gaTarget').value);
+  const gaA  = parseFloat(document.getElementById('gaActual').value);
+  const uaoT = parseFloat(document.getElementById('uaoTarget').value);
+  const uaoA = parseFloat(document.getElementById('uaoActual').value);
+  const naT  = parseFloat(document.getElementById('naTarget').value);
+  const naA  = parseFloat(document.getElementById('naActual').value);
+
+  const amountEl = document.getElementById('calcAmount');
+  const detailEl = document.getElementById('calcDetail');
+  const pctEl    = document.getElementById('calcPct');
+  const warnEl   = document.getElementById('calcWarn');
+
+  if ([gaT, gaA, uaoT, uaoA, naT, naA].some(v => isNaN(v) || v < 0)) {
+    amountEl.textContent = '—';
+    pctEl.textContent = '—';
+    detailEl.textContent = t('calc.result.placeholder');
+    detailEl.setAttribute('data-i18n', 'calc.result.placeholder');
+    amountEl.classList.remove('calc-zero');
+    warnEl.classList.remove('show');
+    return;
+  }
+
+  const gaAch  = Math.min(gaA  / gaT  * 100, 120);
+  const uaoAch = Math.min(uaoA / uaoT * 100, 120);
+  const naAch  = naT > 0 ? Math.min(naA / naT * 100, 120) : 0;
+
+  const overall = (gaAch * 0.75) + (uaoAch * 0.20) + (naAch * 0.05);
+  pctEl.textContent = overall.toFixed(1) + '%';
+
+  let multiplier = 0, slabLabelKey = '';
+  if (overall < 90)       { multiplier = 0;    slabLabelKey = 'calc.slab.below'; }
+  else if (overall < 95)  { multiplier = 0.50; slabLabelKey = 'calc.slab.50'; }
+  else if (overall < 100) { multiplier = 0.80; slabLabelKey = 'calc.slab.80'; }
+  else if (overall <= 105){ multiplier = 1.00; slabLabelKey = 'calc.slab.100'; }
+  else if (overall < 120) { multiplier = 1.10; slabLabelKey = 'calc.slab.110'; }
+  else                    { multiplier = 1.20; slabLabelKey = 'calc.slab.120'; }
+
+  const earned = (multiplier * calcSlab).toFixed(2);
+  amountEl.textContent = `€${earned}`;
+  detailEl.textContent = t(slabLabelKey);
+  detailEl.removeAttribute('data-i18n');
+
+  if (overall < 90) {
+    amountEl.classList.add('calc-zero');
+    warnEl.classList.add('show');
+  } else {
+    amountEl.classList.remove('calc-zero');
+    warnEl.classList.remove('show');
+  }
+}
+</script>
+</body>
+</html>
